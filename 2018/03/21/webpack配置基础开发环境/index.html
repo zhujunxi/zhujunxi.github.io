@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>webpack配置基础开发环境 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="webpack作为一个前端打包工具，可以将js,css,图片,字体等资源压缩打包，便于模块化的统一管理。极大的减少前端工作的工作量。  依据以下几个需求，来构建一个webpack配置环境 支持less/stylus等预处理器 ES6的支持,babel配置 js文件压缩 生成source-map css与js文件分离 图片与字体资源压缩优化 缓存处理（添加hash值） 本地开发服务环境的启动，并支">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack配置基础开发环境">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/webpack配置基础开发环境/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="webpack作为一个前端打包工具，可以将js,css,图片,字体等资源压缩打包，便于模块化的统一管理。极大的减少前端工作的工作量。  依据以下几个需求，来构建一个webpack配置环境 支持less/stylus等预处理器 ES6的支持,babel配置 js文件压缩 生成source-map css与js文件分离 图片与字体资源压缩优化 缓存处理（添加hash值） 本地开发服务环境的启动，并支">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack配置基础开发环境">
+<meta name="twitter:description" content="webpack作为一个前端打包工具，可以将js,css,图片,字体等资源压缩打包，便于模块化的统一管理。极大的减少前端工作的工作量。  依据以下几个需求，来构建一个webpack配置环境 支持less/stylus等预处理器 ES6的支持,babel配置 js文件压缩 生成source-map css与js文件分离 图片与字体资源压缩优化 缓存处理（添加hash值） 本地开发服务环境的启动，并支">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-webpack配置基础开发环境" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/21/webpack配置基础开发环境/" class="article-date">
+  <time datetime="2018-03-21T07:12:10.000Z" itemprop="datePublished">2018-03-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webpack配置基础开发环境
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>webpack作为一个前端打包工具，可以将js,css,图片,字体等资源压缩打包，便于模块化的统一管理。极大的减少前端工作的工作量。</p>
+</blockquote>
+<h4 id="依据以下几个需求，来构建一个webpack配置环境"><a href="#依据以下几个需求，来构建一个webpack配置环境" class="headerlink" title="依据以下几个需求，来构建一个webpack配置环境"></a>依据以下几个需求，来构建一个webpack配置环境</h4><ul>
+<li>支持less/stylus等预处理器</li>
+<li>ES6的支持,babel配置</li>
+<li>js文件压缩</li>
+<li>生成source-map</li>
+<li>css与js文件分离</li>
+<li>图片与字体资源压缩优化</li>
+<li>缓存处理（添加hash值）</li>
+<li>本地开发服务环境的启动，并支持自刷新与热更新</li>
+<li>开发与生产环境分别配置</li>
+<li>支持vue-loader</li>
+</ul>
+<hr>
+<h3 id="一：创建文件"><a href="#一：创建文件" class="headerlink" title="一：创建文件"></a>一：创建文件</h3><p>1:初始化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">md webpack-learn &amp;&amp; <span class="built_in">cd</span> webpack-learn</span><br><span class="line"></span><br><span class="line">npm init</span><br><span class="line"></span><br><span class="line">npm i -D webpack@3.11.0</span><br></pre></td></tr></table></figure></p>
+<p>2:创建目录结构<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">src  <span class="comment"># 开发目录</span></span><br><span class="line">├── src  </span><br><span class="line">│   ├── index.html       <span class="comment"># js</span></span><br><span class="line">│   ├── main.js       <span class="comment"># js</span></span><br><span class="line">│   ├── js</span><br><span class="line">│   │   └── Greeter.js</span><br><span class="line">|   ├── stylus</span><br><span class="line">│   |   ├── base.styl</span><br><span class="line">|   |   └── style.styl</span><br><span class="line">|   └── image</span><br><span class="line">|       └── logo.png</span><br><span class="line">├── dist  </span><br><span class="line">│   ├── index.html      </span><br><span class="line">│   └── static</span><br><span class="line">│       ├── css</span><br><span class="line">│       ├── img</span><br><span class="line">│       ├── js</span><br><span class="line">|       └── favicon.ico</span><br><span class="line">└── webpack.config.js</span><br></pre></td></tr></table></figure></p>
+<p>3:创建webpack.config.js文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry:__dirname + <span class="string">'/src/main.js'</span>, <span class="comment">// 入口</span></span><br><span class="line">    output:&#123;</span><br><span class="line">        filename:<span class="string">'app.[hash].js'</span>,  </span><br><span class="line">        path:__dirname + <span class="string">'/dist'</span>      <span class="comment">// 输出目录</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4:运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack  // 或者添加script命令 =&gt; <span class="string">"dev"</span>:<span class="string">"webpack"</span></span><br></pre></td></tr></table></figure>
+<h3 id="二：模板插入"><a href="#二：模板插入" class="headerlink" title="二：模板插入"></a>二：模板插入</h3><p>1: 安装html-webpack-plugin插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D html-webpack-plugin</span><br></pre></td></tr></table></figure></p>
+<p>2:引入并添加到plugins<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">var</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry:__dirname + <span class="string">'/src/main.js'</span>,</span><br><span class="line">    output:&#123;</span><br><span class="line">        filename:<span class="string">'app.[hash].js'</span>,</span><br><span class="line">        path:__dirname + <span class="string">'/dist'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[</span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">            template:<span class="string">'./src/index.html'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>此时运行webpack命令，即可在/dist目录下生产打包文件</p>
+</blockquote>
+<h3 id="三：CSS预处理器支持，以stylu为例"><a href="#三：CSS预处理器支持，以stylu为例" class="headerlink" title="三：CSS预处理器支持，以stylu为例"></a>三：CSS预处理器支持，以stylu为例</h3><p>1: 处理CSS文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D style-loader css-loader</span><br></pre></td></tr></table></figure></p>
+<p>2:新增loader</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module:&#123;</span><br><span class="line">    rules:[</span><br><span class="line">        &#123;</span><br><span class="line">            test:/\.css$/,</span><br><span class="line">            loader:&apos;style-loader!css-loader&apos;,</span><br><span class="line">            exclude:/node_modules/</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>exclude和include可以限定目录范围</p>
+</blockquote>
+<p>3:在main.js下引入的css文件就可以编译成功了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./css/style.css'</span></span><br></pre></td></tr></table></figure></p>
+<p>4:安装stylus  stylus-loader 并新增loader<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module:&#123;</span><br><span class="line">    rules:[</span><br><span class="line">        &#123;</span><br><span class="line">            test:/\.styl$/,</span><br><span class="line">            loader:&apos;style-loader!css-loader!stylus-loader&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>即可识别.styl的文件</p>
+<h3 id="四：清除打包文件夹多余的文件"><a href="#四：清除打包文件夹多余的文件" class="headerlink" title="四：清除打包文件夹多余的文件"></a>四：清除打包文件夹多余的文件</h3><h3 id="五：ES6的支持-babel配置"><a href="#五：ES6的支持-babel配置" class="headerlink" title="五：ES6的支持,babel配置"></a>五：ES6的支持,babel配置</h3><blockquote>
+<p>通常我们需要把采用 ES6 编写的代码转换成目前已经支持良好的 ES5 代码，这包含2件事：</p>
+</blockquote>
+<ul>
+<li><p>把新的 ES6 语法用 ES5 实现，例如 ES6 的 class 语法用 ES5 的 prototype 实现。</p>
+</li>
+<li><p>给新的 API 注入 polyfill ，例如使用新的 fetch API 时注入对应的 polyfill 后才能让低端浏览器正常运行。</p>
+</li>
+</ul>
+<p>1:安装依赖<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Webpack 接入 Babel 必须依赖的模块</span></span><br><span class="line">npm i -D babel-core babel-loader </span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据你的需求选择不同的 Plugins 或 Presets</span></span><br><span class="line">npm i -D babel-preset-env</span><br><span class="line"></span><br><span class="line"><span class="comment"># babel-plugin-transform-runtime 是 Babel 官方提供的一个插件，作用是减少冗余代码。</span></span><br><span class="line">npm i -D babel-plugin-transform-runtime</span><br></pre></td></tr></table></figure></p>
+<p>2: 新建<code>.babellrc</code>文件，编译时会自动读取此处的配置项<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"presets"</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"env"</span>,&#123;</span><br><span class="line">        <span class="attr">"modules"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">"targets"</span>: &#123;</span><br><span class="line">          <span class="attr">"browsers"</span>: [<span class="string">"&gt; 1%"</span>, <span class="string">"last 2 versions"</span>, <span class="string">"not ie &lt;= 8"</span>]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"plugins"</span>: [<span class="string">"transform-runtime"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3:新增loader<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">    &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'babel-loader'</span>],</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span></span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h3 id="六：文件压缩处理"><a href="#六：文件压缩处理" class="headerlink" title="六：文件压缩处理"></a>六：文件压缩处理</h3><p>1:js压缩</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 uglifyjs-webpack-plugin</span></span><br><span class="line">npm i -D uglifyjs-webpack-plugin</span><br></pre></td></tr></table></figure>
+<p>plugins添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// http://www.css88.com/doc/webpack2/plugins/uglifyjs-webpack-plugin/</span><br><span class="line">new UglifyJSPlugin(&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>2:图片、字体、音视频的处理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 url-loader  file-loader</span></span><br><span class="line">npm i -D url-loader  file-loader</span><br></pre></td></tr></table></figure></p>
+<p>loader添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,</span><br><span class="line">    loader: &apos;url-loader&apos;,</span><br><span class="line">    options: &#123;</span><br><span class="line">        limit: 1024 * 30,    // 限制30kb</span><br><span class="line">        name:&apos;img/[name].[hash:7].[ext]&apos;,</span><br><span class="line">        fallback: &apos;file-loader&apos; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h2><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6 入门-阮一峰</a></li>
+<li><a href="https://www.jianshu.com/p/42e11515c10f" target="_blank" rel="noopener">入门 Webpack，看这篇就够了</a></li>
+<li><a href="http://webpack.wuhaolin.cn/" target="_blank" rel="noopener">深入浅出 Webpack</a></li>
+<li><a href="http://blog.csdn.net/haochangdi123/article/details/78316211?locationNum=4&amp;fps=1" target="_blank" rel="noopener">webpack自动生成项目中的HTML文件</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/21/webpack配置基础开发环境/" data-id="cjt194hm0000g84tpz1r5lxsj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/26/2018-云南三地背包游记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2018-云南三地背包游记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/05/axios配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">axios配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情随笔/">心情随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VScode/">VScode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信开发/">微信开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/微信开发/" style="font-size: 16.67px;">微信开发</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/2018-云南三地背包游记/">2018-云南三地背包游记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/webpack配置基础开发环境/">webpack配置基础开发环境</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/axios配置/">axios配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/08/javascript小技巧/">javascript小技巧</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

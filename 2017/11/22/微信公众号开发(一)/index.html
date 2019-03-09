@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>微信公众号开发(一) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="开发工具 踩坑：在开发中使用的是chrome浏览器，结果打包后在微信中显示样式错乱。 建议：使用微信开发者工具进行调试，它和微信都是x5内核，这样保证开发和生产样式一致。 openid 微信开发是绕不开openid这个字段的，可以简单理解成用户的id。 开发前一定要询问清楚，后端如何给前端传递openid。 踩坑：曾经遇到一种方式，是后台通过cookie方式存储到浏览器，然而开发中存在延时问题，页">
+<meta name="keywords" content="微信开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信公众号开发(一)">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/微信公众号开发(一)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="开发工具 踩坑：在开发中使用的是chrome浏览器，结果打包后在微信中显示样式错乱。 建议：使用微信开发者工具进行调试，它和微信都是x5内核，这样保证开发和生产样式一致。 openid 微信开发是绕不开openid这个字段的，可以简单理解成用户的id。 开发前一定要询问清楚，后端如何给前端传递openid。 踩坑：曾经遇到一种方式，是后台通过cookie方式存储到浏览器，然而开发中存在延时问题，页">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信公众号开发(一)">
+<meta name="twitter:description" content="开发工具 踩坑：在开发中使用的是chrome浏览器，结果打包后在微信中显示样式错乱。 建议：使用微信开发者工具进行调试，它和微信都是x5内核，这样保证开发和生产样式一致。 openid 微信开发是绕不开openid这个字段的，可以简单理解成用户的id。 开发前一定要询问清楚，后端如何给前端传递openid。 踩坑：曾经遇到一种方式，是后台通过cookie方式存储到浏览器，然而开发中存在延时问题，页">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-微信公众号开发(一)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/22/微信公众号开发(一)/" class="article-date">
+  <time datetime="2017-11-22T12:29:06.000Z" itemprop="datePublished">2017-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微信公众号开发(一)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><hr>
+<p>踩坑：在开发中使用的是chrome浏览器，结果打包后在微信中显示样式错乱。</p>
+<p>建议：使用微信开发者工具进行调试，它和微信都是x5内核，这样保证开发和生产样式一致。</p>
+<h3 id="openid"><a href="#openid" class="headerlink" title="openid"></a>openid</h3><hr>
+<p>微信开发是绕不开openid这个字段的，可以简单理解成用户的id。</p>
+<p>开发前一定要询问清楚，后端如何给前端传递openid。</p>
+<p>踩坑：曾经遇到一种方式，是后台通过cookie方式存储到浏览器，然而开发中存在延时问题，页面加载完了，还获取不到cookie,延时大约1s才可以获取的到。</p>
+<p>建议：稳妥方式是让后台写一个登录接口，通过该接口获取openid。</p>
+<h3 id="jssdk"><a href="#jssdk" class="headerlink" title="jssdk"></a>jssdk</h3><hr>
+<p>微信提供了jssdk，其中封装了很多方便的功能。</p>
+<p>安装依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install weixin-js-sdk --save</span><br></pre></td></tr></table></figure></p>
+<p>jssdk需要通过config接口注入权限验证配置，才可以正常使用，其中的参数都是后端返回的，前端只要通过接口获取这些参数，并通过config验证即可。</p>
+<h3 id="公众平台绑定域名"><a href="#公众平台绑定域名" class="headerlink" title="公众平台绑定域名"></a>公众平台绑定域名</h3><hr>
+<p>使用jssdk是需要绑定域名的。JS接口安全域名：需要是一个公网域名。</p>
+<blockquote>
+<p>先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。</p>
+</blockquote>
+<p>这就导致本地开发无法调试jssdk功能，因为localhost:8080不是JS接口安全域名。</p>
+<h3 id="内网穿透-转发"><a href="#内网穿透-转发" class="headerlink" title="内网穿透/转发"></a>内网穿透/转发</h3><hr>
+<p>想要调试jssdk，代码需要发布到域名对应的ip服务器上。但是这样上传太频繁了。</p>
+<p>把内网映射到公网，这样就可以在本地进行调试了。</p>
+<p>常见工具：ngrok、魔法隧道、花生壳等。具体可搜索关键字<code>内网穿透/转发</code>。</p>
+<h3 id="微信头像跨域"><a href="#微信头像跨域" class="headerlink" title="微信头像跨域"></a>微信头像跨域</h3><hr>
+<p>踩坑：如果需要展示微信头像，请求后台返回的url会存在跨域问题。</p>
+<p>建议：可以让后台返回头像的二进制文件(blob)，在ajax中记得设置响应类型<code>responseType:&#39;blob&#39;</code>，然后前端将blob转换成base64格式进行展示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (window.FileReader) &#123;</span><br><span class="line">     let fr = new FileReader();</span><br><span class="line">     let img = new Image();</span><br><span class="line">     fr.readAsDataURL(blob);</span><br><span class="line">     fr.onloadend = (e) =&gt; &#123;</span><br><span class="line">         img.src = e.target.result;</span><br><span class="line">         // appendChild(img)</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="生成海报-邀请函"><a href="#生成海报-邀请函" class="headerlink" title="生成海报/邀请函"></a>生成海报/邀请函</h3><hr>
+<p>通常会有生成海报、邀请函的需求，这些有两种方案：</p>
+<ul>
+<li>后端生成图片<br>通过接口上传图片，后端生成图片并返回，前端展示。</li>
+<li>前端生成图片<br>前端将dom转换成canvas或img。</li>
+</ul>
+<p>这里主要讲第二种，前端生成图片：<br>插件：dom-to-img、html2canvas<br>实际效果：html2canvas比较模糊，dom-to-img的png、jpeg格式同样模糊，但是svg格式很清晰。</p>
+<p>html2canvas模糊方案之一：<br>将 canvas 的宽高设置成容器宽高的 2 倍，处理生成的 canvas 图片模糊失真<br>可参考：<a href="https://www.zhihu.com/question/48217555" target="_blank" rel="noopener">html2canvas截图失真</a></p>
+<p><em>注意：</em> 除了模糊以外，html2canvas生成的图片和dom样式有不一致的地方。</p>
+<h3 id="长按保存-转发图片"><a href="#长按保存-转发图片" class="headerlink" title="长按保存/转发图片"></a>长按保存/转发图片</h3><hr>
+<p>踩坑：在微信网页中，长按普通的图片是可以保存或转发的，但是通过上一步dom转换的图片是svg格式，微信是不支持保存。</p>
+<p>建议：</p>
+<ul>
+<li>生成图片后上传给后端，后端返回一个url。</li>
+<li>前端将svg转换成png<ul>
+<li>通过window.devicePixelRatio获取设备像素比scale</li>
+<li>canvas画布的大小是图片的scale倍(<strong>相当于提高图片精度</strong>)</li>
+<li>调用canvas的drawImage()在画布上绘图。</li>
+<li>调用toDataUrl()返回png格式的图片展示<code>data URI</code></li>
+<li>设置img.src，并且宽高缩小scale倍(这里是等比缩放，所以不会模糊)</li>
+</ul>
+</li>
+</ul>
+<h3 id="分享参数配置"><a href="#分享参数配置" class="headerlink" title="分享参数配置"></a>分享参数配置</h3><hr>
+<p>jssdk分享接口中有一些参数配置项：</p>
+<ul>
+<li><p>link<br>分享链接，vue-router的hash模式，#后面的部分会被忽略<br>建议：使用urlencode加密</p>
+<pre><code>或者在#前面加一个?
+</code></pre></li>
+<li><p>imgUrl<br>分享图标 </p>
+<ul>
+<li>可以放到图片服务器上</li>
+<li>放到项目的assets目录中</li>
+</ul>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL" target="_blank" rel="noopener">toDataUrl</a></p>
+<h3 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/22/微信公众号开发(一)/" data-id="cjt194hmg001184tpue0pf5tf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发/">微信开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/23/微信公众号开发(二)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          微信公众号开发(二)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/22/开始我的博客记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">开始我的博客记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情随笔/">心情随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VScode/">VScode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信开发/">微信开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/微信开发/" style="font-size: 16.67px;">微信开发</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/2018-云南三地背包游记/">2018-云南三地背包游记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/webpack配置基础开发环境/">webpack配置基础开发环境</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/axios配置/">axios配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/08/javascript小技巧/">javascript小技巧</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

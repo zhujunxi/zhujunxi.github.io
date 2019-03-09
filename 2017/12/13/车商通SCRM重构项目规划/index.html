@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>车商通SCRM重构项目规划[wechat.scrm.public] | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="开发环境启动步骤12345# 安装项目依赖npm install# 启动服务并开启热更新 ，服务地址：localhost:8080npm run dev 生产打包12345# 构建webpack打包压缩 [打包在/dist]npm run build# 查看打包报告npm run build --report 技术文档 前端框架：vue2  UI框架： YDUI  路由管理：vue-router">
+<meta name="keywords" content="vue,微信开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="车商通SCRM重构项目规划[wechat.scrm.public]">
+<meta property="og:url" content="http://yoursite.com/2017/12/13/车商通SCRM重构项目规划/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="开发环境启动步骤12345# 安装项目依赖npm install# 启动服务并开启热更新 ，服务地址：localhost:8080npm run dev 生产打包12345# 构建webpack打包压缩 [打包在/dist]npm run build# 查看打包报告npm run build --report 技术文档 前端框架：vue2  UI框架： YDUI  路由管理：vue-router">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="车商通SCRM重构项目规划[wechat.scrm.public]">
+<meta name="twitter:description" content="开发环境启动步骤12345# 安装项目依赖npm install# 启动服务并开启热更新 ，服务地址：localhost:8080npm run dev 生产打包12345# 构建webpack打包压缩 [打包在/dist]npm run build# 查看打包报告npm run build --report 技术文档 前端框架：vue2  UI框架： YDUI  路由管理：vue-router">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-车商通SCRM重构项目规划" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/13/车商通SCRM重构项目规划/" class="article-date">
+  <time datetime="2017-12-13T13:09:54.000Z" itemprop="datePublished">2017-12-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      车商通SCRM重构项目规划[wechat.scrm.public]
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="开发环境启动步骤"><a href="#开发环境启动步骤" class="headerlink" title="开发环境启动步骤"></a>开发环境启动步骤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 安装项目依赖</span></span><br><span class="line">npm install</span><br><span class="line"><span class="comment"># 启动服务并开启热更新 ，服务地址：localhost:8080</span></span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<h3 id="生产打包"><a href="#生产打包" class="headerlink" title="生产打包"></a>生产打包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建webpack打包压缩 [打包在/dist]</span></span><br><span class="line">npm run build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看打包报告</span></span><br><span class="line">npm run build --report</span><br></pre></td></tr></table></figure>
+<h3 id="技术文档"><a href="#技术文档" class="headerlink" title="技术文档"></a>技术文档</h3><ul>
+<li><p>前端框架：<a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">vue2</a></p>
+</li>
+<li><p>UI框架： <a href="http://vue.ydui.org/docs/#/quickstart" target="_blank" rel="noopener">YDUI</a></p>
+</li>
+<li><p>路由管理：<a href="https://router.vuejs.org/" target="_blank" rel="noopener">vue-router</a></p>
+</li>
+<li><p>状态管理：<a href="https://vuex.vuejs.org/" target="_blank" rel="noopener">vuex</a></p>
+</li>
+<li><p>模块打包工具：<a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack3</a> __  <a href="http://www.css88.com/doc/webpack2/guides/development/" target="_blank" rel="noopener">中文文档</a></p>
+</li>
+</ul>
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">dist <span class="comment"># 打包目录</span></span><br><span class="line">|</span><br><span class="line">src  <span class="comment"># 开发目录</span></span><br><span class="line">├── index.html</span><br><span class="line">├── main.js    <span class="comment"># 主配置</span></span><br><span class="line">├── App.vue    <span class="comment"># 入口布局</span></span><br><span class="line">├── assets     <span class="comment"># 静态资源</span></span><br><span class="line">│   ├── image</span><br><span class="line">│   └── stylus</span><br><span class="line">│       ├── base.styl         <span class="comment"># 基础样式与YDUI主题色修改</span></span><br><span class="line">│       ├── icon.styl         <span class="comment"># 项目地址icon</span></span><br><span class="line">│       ├── variable.styl     <span class="comment"># 项目主题色配置</span></span><br><span class="line">│       └── index.styl</span><br><span class="line">│</span><br><span class="line">├── config     <span class="comment"># 配置文件 (待优化)</span></span><br><span class="line">│   ├── api       <span class="comment"># ajax相关</span></span><br><span class="line">│   ├── utils     <span class="comment"># 公共方法</span></span><br><span class="line">│   ├── axios.js  <span class="comment"># axios</span></span><br><span class="line">│   └── env.js    <span class="comment"># 开发环境配置</span></span><br><span class="line">│</span><br><span class="line">├── components</span><br><span class="line">│   └── ...<span class="comment"># 公共组件</span></span><br><span class="line">│</span><br><span class="line">├── pages</span><br><span class="line">│   ├── buy       <span class="comment"># 买车模块</span></span><br><span class="line">│   │   ├── index</span><br><span class="line">│   │   │    └── index.vue 买车主页</span><br><span class="line">│   │   └── other</span><br><span class="line">│   │</span><br><span class="line">│   ├── keep      <span class="comment"># 养车模块</span></span><br><span class="line">│   ├── discovery <span class="comment"># 发现模块</span></span><br><span class="line">│   └── common    <span class="comment"># 公共页面</span></span><br><span class="line">│</span><br><span class="line">├── router</span><br><span class="line">│   ├── index       <span class="comment"># 路由配置</span></span><br><span class="line">│   ├── buy         <span class="comment"># 买车模块路由</span></span><br><span class="line">│   ├── keep        <span class="comment"># 养车模块路由</span></span><br><span class="line">│   ├── discovery   <span class="comment"># 发现模块路由</span></span><br><span class="line">│   └── common      <span class="comment"># 公共页面路由</span></span><br><span class="line">│</span><br><span class="line">└── store       <span class="comment">#vuex配置</span></span><br><span class="line">    ├── index.js          <span class="comment"># 组装模块并导出store</span></span><br><span class="line">    ├── actions.js        <span class="comment"># 根级别的 action</span></span><br><span class="line">    ├── mutations.js      <span class="comment"># 根级别的 mutation</span></span><br><span class="line">    └── modules</span><br><span class="line">        └── ...           <span class="comment"># 各页面vuex配置</span></span><br></pre></td></tr></table></figure>
+<h3 id="Commit-Message-编写规范"><a href="#Commit-Message-编写规范" class="headerlink" title="Commit Message 编写规范"></a>Commit Message 编写规范</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">feat: 新功能</span><br><span class="line">fix: 修补bug</span><br><span class="line">docs: 文档</span><br><span class="line">style: 格式(不影响代码运行的变动)</span><br><span class="line">refactor: 重构</span><br><span class="line">test: 添加测试</span><br><span class="line">chore: 构建过程或辅助工具的变动</span><br></pre></td></tr></table></figure>
+<h3 id="edit规范配置文件"><a href="#edit规范配置文件" class="headerlink" title="edit规范配置文件"></a>edit规范配置文件</h3><p><em>根目录.editorconfig文件</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root = true</span><br><span class="line"></span><br><span class="line">[*]</span><br><span class="line">charset = utf-8</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 2</span><br><span class="line">end_of_line = lf</span><br><span class="line">insert_final_newline = true</span><br><span class="line">trim_trailing_whitespace = true</span><br></pre></td></tr></table></figure></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li>待添加…</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/13/车商通SCRM重构项目规划/" data-id="cjt194hnk002a84tpi7bgi13s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发/">微信开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/14/夜行者/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          夜行者
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/06/javascript项目开发规范/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">javascript项目开发规范</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情随笔/">心情随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VScode/">VScode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信开发/">微信开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/微信开发/" style="font-size: 16.67px;">微信开发</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/2018-云南三地背包游记/">2018-云南三地背包游记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/webpack配置基础开发环境/">webpack配置基础开发环境</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/axios配置/">axios配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/08/javascript小技巧/">javascript小技巧</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

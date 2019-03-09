@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>使用webpack做项目版本管理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近公司在做vue-cli构建的一个webApp项目，由于更新比较频繁，所以想到在每次用webpack打包的时候生成一个打包标记，相当于一个版本号，以供测试清楚当前的版本信息。  一：生成打包时间1.在config/index.js头部定义version。 123let nowDate = new Date();let version = `1.$&amp;#123;nowDate.getMonth()">
+<meta name="keywords" content="vue,webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用webpack做项目版本管理">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/使用webpack做项目版本管理/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近公司在做vue-cli构建的一个webApp项目，由于更新比较频繁，所以想到在每次用webpack打包的时候生成一个打包标记，相当于一个版本号，以供测试清楚当前的版本信息。  一：生成打包时间1.在config/index.js头部定义version。 123let nowDate = new Date();let version = `1.$&amp;#123;nowDate.getMonth()">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用webpack做项目版本管理">
+<meta name="twitter:description" content="最近公司在做vue-cli构建的一个webApp项目，由于更新比较频繁，所以想到在每次用webpack打包的时候生成一个打包标记，相当于一个版本号，以供测试清楚当前的版本信息。  一：生成打包时间1.在config/index.js头部定义version。 123let nowDate = new Date();let version = `1.$&amp;#123;nowDate.getMonth()">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-使用webpack做项目版本管理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/30/使用webpack做项目版本管理/" class="article-date">
+  <time datetime="2017-11-30T05:41:13.000Z" itemprop="datePublished">2017-11-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用webpack做项目版本管理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>最近公司在做<code>vue-cli</code>构建的一个webApp项目，由于更新比较频繁，所以想到在每次用<code>webpack</code>打包的时候生成一个打包标记，相当于一个版本号，以供测试清楚当前的版本信息。</p>
+</blockquote>
+<h3 id="一：生成打包时间"><a href="#一：生成打包时间" class="headerlink" title="一：生成打包时间"></a>一：生成打包时间</h3><p>1.在<code>config/index.js</code>头部定义<code>version</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">let</span> version = <span class="string">`1.<span class="subst">$&#123;nowDate.getMonth()+<span class="number">1</span>&#125;</span>.<span class="subst">$&#123;nowDate.getDate()&#125;</span><span class="subst">$&#123;nowDate.getHours()&#125;</span>`</span>;</span><br><span class="line"><span class="comment">//我是按照打包时间生成的版本号，具体想项目有不同的版本号规则</span></span><br></pre></td></tr></table></figure>
+<p>2.将<code>version</code>挂载到<code>env</code>环境变量下，这样项目内就可以通过<code>process.env</code>调用版本信息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过Object.assign(),将&#123;version:version&#125;插入env对象</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  build: &#123;</span><br><span class="line">    <span class="comment">//env:require('./prod.env'),</span></span><br><span class="line">    env: <span class="built_in">Object</span>.assign(</span><br><span class="line">          &#123;<span class="attr">VERSION</span>:<span class="built_in">JSON</span>.stringify(version)&#125;,</span><br><span class="line">          <span class="built_in">require</span>(<span class="string">'./prod.env'</span>)</span><br><span class="line">        ),</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.调用version<br>  项目中使用<code>process.env.VERSION</code>可以获取当前版本信息</p>
+<h3 id="二：将version关联到package-josn"><a href="#二：将version关联到package-josn" class="headerlink" title="二：将version关联到package.josn"></a>二：将<code>version</code>关联到package.josn</h3><p>1.将<code>version</code>通过<code>config/index</code>暴露出去，供打包过程中使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    build: &#123;...&#125;,</span><br><span class="line">    dev:   &#123;...&#125;,</span><br><span class="line">    version:version   <span class="comment">//新增项</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.在<code>webpack.prod.conf.js</code>中编写<code>webpack</code>插件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先引入`fs`模块</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)  <span class="comment">//fs模块是`node.js`中读写文件的模块</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写简单的webpack插件，去读取并修改package.json文件内容</span></span><br><span class="line">plugins: [</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 修改package.json中的版本号</span></span><br><span class="line">    <span class="keyword">this</span>.plugin(<span class="string">'done'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> pkgPath = path.join(__dirname, <span class="string">'/../package.json'</span>);</span><br><span class="line">      <span class="keyword">let</span> pkg = fs.readFileSync(pkgPath);</span><br><span class="line">      pkg = <span class="built_in">JSON</span>.parse(pkg);</span><br><span class="line">      pkg.version = config.version;</span><br><span class="line">      fs.writeFileSync(pkgPath, <span class="built_in">JSON</span>.stringify(pkg, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>现在执行打包任务，如<code>npm run build</code>就可以生成新的版本号，并写入<code>package.json</code>中，项目中也可以使用<code>process.env.VERSION</code>进行调用了</strong></p>
+<h3 id="三：打包完毕，在控制台输出当前版本号"><a href="#三：打包完毕，在控制台输出当前版本号" class="headerlink" title="三：打包完毕，在控制台输出当前版本号"></a>三：打包完毕，在控制台输出当前版本号</h3><p>打包完毕的回调执行在<code>build/build.js</code>中,可以通过<code>config.version</code>获取版本信息，在完成打包输出控制台，便于开发者查看</p>
+<p>以下我定义的输出格式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">  webpack(webpackConfig, <span class="function"><span class="keyword">function</span> (<span class="params">err, stats</span>) </span>&#123;</span><br><span class="line">    spinner.stop()</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">    process.stdout.write(stats.toString(&#123;</span><br><span class="line">      colors: <span class="literal">true</span>,</span><br><span class="line">      modules: <span class="literal">false</span>,</span><br><span class="line">      children: <span class="literal">false</span>,</span><br><span class="line">      chunks: <span class="literal">false</span>,</span><br><span class="line">      chunkModules: <span class="literal">false</span></span><br><span class="line">    &#125;) + <span class="string">'\n\n'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(chalk.yellow(<span class="string">'&gt; 正式环境项目打包完毕 ヽ(^_^)ﾉ  版本：'</span> + config.version))</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>输出样式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">正式环境项目打包完毕 ヽ(^_^)ﾉ  版本：1.11.3015</span><br></pre></td></tr></table></figure></p>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/30/使用webpack做项目版本管理/" data-id="cjt194hly000f84tpfxlvbqn7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/01/用node-js快速搭建本地服务器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          用node.js快速搭建本地服务器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/28/小诗一首/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">小诗一首</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情随笔/">心情随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VScode/">VScode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信开发/">微信开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/微信开发/" style="font-size: 16.67px;">微信开发</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/2018-云南三地背包游记/">2018-云南三地背包游记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/webpack配置基础开发环境/">webpack配置基础开发环境</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/axios配置/">axios配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/08/javascript小技巧/">javascript小技巧</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

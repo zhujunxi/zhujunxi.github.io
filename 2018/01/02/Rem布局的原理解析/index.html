@@ -5,19 +5,22 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>Rem布局的原理解析 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="转载自：颜海镜的博客 什么是Remrem和em很容易混淆，其实两个都是css的单位，而且也都是相对单位。rem是css3才引入的。 下面先来了解下em  em作为font-size的单位时，其代表父元素的字体大小,em作为其他属性单位时，代表自身字体大小————MDN  em做弹性布局的缺点还在于牵一发而动全身，一旦某个节点的字体大小发生变化，那么其后代元素都得重新计算，X﹏X  rem作用于非根">
+<meta name="keywords" content="css,rem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/hello-world/index.html">
+<meta property="og:title" content="Rem布局的原理解析">
+<meta property="og:url" content="http://yoursite.com/2018/01/02/Rem布局的原理解析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="转载自：颜海镜的博客 什么是Remrem和em很容易混淆，其实两个都是css的单位，而且也都是相对单位。rem是css3才引入的。 下面先来了解下em  em作为font-size的单位时，其代表父元素的字体大小,em作为其他属性单位时，代表自身字体大小————MDN  em做弹性布局的缺点还在于牵一发而动全身，一旦某个节点的字体大小发生变化，那么其后代元素都得重新计算，X﹏X  rem作用于非根">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-09T08:21:52.716Z">
+<meta property="og:image" content="http://otnauza5u.bkt.clouddn.com/18-1-4/88243012.jpg">
+<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Rem布局的原理解析">
+<meta name="twitter:description" content="转载自：颜海镜的博客 什么是Remrem和em很容易混淆，其实两个都是css的单位，而且也都是相对单位。rem是css3才引入的。 下面先来了解下em  em作为font-size的单位时，其代表父元素的字体大小,em作为其他属性单位时，代表自身字体大小————MDN  em做弹性布局的缺点还在于牵一发而动全身，一旦某个节点的字体大小发生变化，那么其后代元素都得重新计算，X﹏X  rem作用于非根">
+<meta name="twitter:image" content="http://otnauza5u.bkt.clouddn.com/18-1-4/88243012.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,12 +67,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Rem布局的原理解析" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/09/hello-world/" class="article-date">
-  <time datetime="2019-03-09T08:21:52.716Z" itemprop="datePublished">2019-03-09</time>
+    <a href="/2018/01/02/Rem布局的原理解析/" class="article-date">
+  <time datetime="2018-01-02T10:11:23.000Z" itemprop="datePublished">2018-01-02</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -78,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Rem布局的原理解析
     </h1>
   
 
@@ -86,32 +93,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p><em><a href="https://zhuanlan.zhihu.com/p/30413803" target="_blank" rel="noopener">转载自：颜海镜的博客</a></em></p>
+<h3 id="什么是Rem"><a href="#什么是Rem" class="headerlink" title="什么是Rem"></a>什么是Rem</h3><p>rem和em很容易混淆，其实两个都是css的单位，而且也都是相对单位。rem是css3才引入的。</p>
+<p>下面先来了解下em</p>
+<blockquote>
+<p>em作为font-size的单位时，其代表父元素的字体大小,em作为其他属性单位时，代表自身字体大小————MDN</p>
+</blockquote>
+<p><img src="http://otnauza5u.bkt.clouddn.com/18-1-4/88243012.jpg" alt="rem"><br>em做弹性布局的缺点还在于牵一发而动全身，一旦某个节点的字体大小发生变化，那么其后代元素都得重新计算，X﹏X</p>
+<blockquote>
+<p>rem作用于非根元素时，相对于元素字体大小；rem作用于根元素字体大小时，相对于其初始字体大小 ————MDN</p>
+</blockquote>
+<p>rem取值分为两种情况，设置在根元素时和非根元素时。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*作用于根元素，相对于原始大小（16px）,所以html的font-size为32px*/</span></span><br><span class="line"><span class="selector-tag">html</span> &#123;<span class="attribute">font-size</span>: <span class="number">2rem</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*作用于非根元素，相对于根元素字体大小，所以是64px*/</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">font-size</span>: <span class="number">2rem</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Rem布局原理"><a href="#Rem布局原理" class="headerlink" title="Rem布局原理"></a>Rem布局原理</h3><p>rem布局的本质是什么？这是我问过很多人的一个问题，单得到的回答都差强人意。</p>
+<p>其实rem布局的本质是等比缩放，一般是基于宽度。</p>
+<p>假设将屏幕宽度平均分为100份，每一份为X, X = 屏幕宽度/100, 如果将X作为单位，X前面的数值就代表屏幕宽度的百分比</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:<span class="number">50</span>x&#125; <span class="comment">/*屏幕宽度的50%*/</span></span><br></pre></td></tr></table></figure>
+<p>如果想要页面元素随着屏幕宽度等比变化，就需要通过rem。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/09/hello-world/" data-id="cjt18xhwv0000s8tpl424jl0n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/02/Rem布局的原理解析/" data-id="cjt194hlk000484tpsbfpcduf" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rem/">rem</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/2018/01/08/javascript小技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          javascript小技巧
+        
+      </div>
+    </a>
   
-    <a href="/2018/05/26/2018-云南三地背包游记/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/12/30/VScode的vue代码片段设置/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">2018-云南三地背包游记</div>
+      <div class="article-nav-title">VScode的vue代码片段设置</div>
     </a>
   
 </nav>

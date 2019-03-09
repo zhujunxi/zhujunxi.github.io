@@ -5,19 +5,20 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>VUE中的v-model探究 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="v-model的作用123456789101112131415&amp;lt;div id=&quot;app&quot;&amp;gt; &amp;lt;input v-model=&quot;poin&quot;&amp;gt;  &amp;#123;&amp;#123; poin &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt;new Vue(&amp;#123;  el:&apos;#app&apos;,  data:&amp;#123;    poin:&apos;zqz&apos;  &amp;#125;&amp;">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/hello-world/index.html">
+<meta property="og:title" content="VUE中的v-model探究">
+<meta property="og:url" content="http://yoursite.com/2017/12/29/VUE中的v-model探究/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="v-model的作用123456789101112131415&amp;lt;div id=&quot;app&quot;&amp;gt; &amp;lt;input v-model=&quot;poin&quot;&amp;gt;  &amp;#123;&amp;#123; poin &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt;new Vue(&amp;#123;  el:&apos;#app&apos;,  data:&amp;#123;    poin:&apos;zqz&apos;  &amp;#125;&amp;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-09T08:21:52.716Z">
+<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="VUE中的v-model探究">
+<meta name="twitter:description" content="v-model的作用123456789101112131415&amp;lt;div id=&quot;app&quot;&amp;gt; &amp;lt;input v-model=&quot;poin&quot;&amp;gt;  &amp;#123;&amp;#123; poin &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt;new Vue(&amp;#123;  el:&apos;#app&apos;,  data:&amp;#123;    poin:&apos;zqz&apos;  &amp;#125;&amp;">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,12 +65,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-VUE中的v-model探究" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/09/hello-world/" class="article-date">
-  <time datetime="2019-03-09T08:21:52.716Z" itemprop="datePublished">2019-03-09</time>
+    <a href="/2017/12/29/VUE中的v-model探究/" class="article-date">
+  <time datetime="2017-12-29T05:47:48.000Z" itemprop="datePublished">2017-12-29</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -78,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      VUE中的v-model探究
     </h1>
   
 
@@ -86,32 +91,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h3 id="v-model的作用"><a href="#v-model的作用" class="headerlink" title="v-model的作用"></a>v-model的作用</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"poin"</span>&gt;</span></span><br><span class="line">  &#123;&#123; poin &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">'#app'</span>,</span></span><br><span class="line"><span class="undefined">  data:&#123;</span></span><br><span class="line"><span class="javascript">    poin:<span class="string">'zqz'</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在input中输入,的值也会实时变化，以实现双向绑定</p>
+<p><em>实际上<code>v-model</code>是以下写法的语法糖</em><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">:value</span>=<span class="string">"poin"</span> @<span class="attr">input</span>=<span class="string">"poin = $event.target.value"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="在组件中使用v-model"><a href="#在组件中使用v-model" class="headerlink" title="在组件中使用v-model"></a>在组件中使用<code>v-model</code></h3><p><a href="http://www.cnblogs.com/zqzjs/p/6957310.html" target="_blank" rel="noopener">[转载自] 你真的知道组件中的v-model吗？</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/09/hello-world/" data-id="cjt18xhwv0000s8tpl424jl0n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/29/VUE中的v-model探究/" data-id="cjt194hlm000584tpvcffedjg" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/2017/12/30/VScode的vue代码片段设置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          VScode的vue代码片段设置
+        
+      </div>
+    </a>
   
-    <a href="/2018/05/26/2018-云南三地背包游记/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/12/22/冬至不至/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">2018-云南三地背包游记</div>
+      <div class="article-nav-title">冬至不至</div>
     </a>
   
 </nav>

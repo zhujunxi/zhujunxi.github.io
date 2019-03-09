@@ -5,19 +5,20 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>在TortoiseGit(pageant)中自动导入ppk文件 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="在安装完TortoiseGit，通过PuTTYgen生成完rsa, ppk等文件后，要想pull文件，还得每次在TortoiseGit启动时，在pageant中手动导入ppk文件，很是烦人。下面就是解决TortoiseGit每次启动时需要手动导入ppk文件的问题。  方法一 进入Git项目的目录，右键空白处，打开“TortoiseGit &amp;gt; Settings” 选中“Git &amp;gt; Re">
+<meta name="keywords" content="ssh,git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/hello-world/index.html">
+<meta property="og:title" content="在TortoiseGit(pageant)中自动导入ppk文件">
+<meta property="og:url" content="http://yoursite.com/2017/12/04/在TortoiseGit-pageant-中自动导入ppk文件/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="在安装完TortoiseGit，通过PuTTYgen生成完rsa, ppk等文件后，要想pull文件，还得每次在TortoiseGit启动时，在pageant中手动导入ppk文件，很是烦人。下面就是解决TortoiseGit每次启动时需要手动导入ppk文件的问题。  方法一 进入Git项目的目录，右键空白处，打开“TortoiseGit &amp;gt; Settings” 选中“Git &amp;gt; Re">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-09T08:21:52.716Z">
+<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="在TortoiseGit(pageant)中自动导入ppk文件">
+<meta name="twitter:description" content="在安装完TortoiseGit，通过PuTTYgen生成完rsa, ppk等文件后，要想pull文件，还得每次在TortoiseGit启动时，在pageant中手动导入ppk文件，很是烦人。下面就是解决TortoiseGit每次启动时需要手动导入ppk文件的问题。  方法一 进入Git项目的目录，右键空白处，打开“TortoiseGit &amp;gt; Settings” 选中“Git &amp;gt; Re">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,12 +65,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-在TortoiseGit-pageant-中自动导入ppk文件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/09/hello-world/" class="article-date">
-  <time datetime="2019-03-09T08:21:52.716Z" itemprop="datePublished">2019-03-09</time>
+    <a href="/2017/12/04/在TortoiseGit-pageant-中自动导入ppk文件/" class="article-date">
+  <time datetime="2017-12-04T06:59:08.000Z" itemprop="datePublished">2017-12-04</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -78,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      在TortoiseGit(pageant)中自动导入ppk文件
     </h1>
   
 
@@ -86,32 +91,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <blockquote>
+<p>在安装完TortoiseGit，通过PuTTYgen生成完rsa, ppk等文件后，要想pull文件，还得每次在TortoiseGit启动时，在pageant中手动导入ppk文件，很是烦人。下面就是解决TortoiseGit每次启动时需要手动导入ppk文件的问题。</p>
+</blockquote>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><ol>
+<li>进入Git项目的目录，右键空白处，打开“TortoiseGit &gt; Settings”</li>
+<li>选中“Git &gt; Remote”</li>
+<li>选中正确的origin</li>
+<li>在Putty一栏选择正确的ppk文件</li>
+<li>点确定</li>
+</ol>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><ol>
+<li>在“启动”菜单中打开“启动”目录，Windows7一般在C:\Users\hairong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</li>
+<li>右键空白处，选择新建快捷方式</li>
+<li>选择pageant的位置，并按填入ppk的位置，例如”C:\Program Files\TortoiseGit\bin\pageant.exe” C:\Users\hairong.ssh\id_rsa.ppk</li>
+<li>修改快捷方式的名字为“pageant with ppk”，并保存</li>
+<li>系统每次启动后就会自动加载ppk了</li>
+</ol>
+<p><em>系转载自：<a href="http://sulaohuai.blog.51cto.com/10674946/1712115" target="_blank" rel="noopener">http://sulaohuai.blog.51cto.com/10674946/1712115</a></em></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/09/hello-world/" data-id="cjt18xhwv0000s8tpl424jl0n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/04/在TortoiseGit-pageant-中自动导入ppk文件/" data-id="cjt194hmb000u84tp3br6q0zj" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/2017/12/05/自用VSCode插件合集/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自用VSCode插件合集
+        
+      </div>
+    </a>
   
-    <a href="/2018/05/26/2018-云南三地背包游记/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/12/01/用node-js快速搭建本地服务器/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">2018-云南三地背包游记</div>
+      <div class="article-nav-title">用node.js快速搭建本地服务器</div>
     </a>
   
 </nav>
