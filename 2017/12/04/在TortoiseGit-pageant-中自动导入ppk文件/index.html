@@ -1,96 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-
-  
-  <title>在TortoiseGit(pageant)中自动导入ppk文件 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在安装完TortoiseGit，通过PuTTYgen生成完rsa, ppk等文件后，要想pull文件，还得每次在TortoiseGit启动时，在pageant中手动导入ppk文件，很是烦人。下面就是解决TortoiseGit每次启动时需要手动导入ppk文件的问题。  方法一 进入Git项目的目录，右键空白处，打开“TortoiseGit &amp;gt; Settings” 选中“Git &amp;gt; Re">
-<meta name="keywords" content="ssh,git">
-<meta property="og:type" content="article">
-<meta property="og:title" content="在TortoiseGit(pageant)中自动导入ppk文件">
-<meta property="og:url" content="http://yoursite.com/2017/12/04/在TortoiseGit-pageant-中自动导入ppk文件/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在安装完TortoiseGit，通过PuTTYgen生成完rsa, ppk等文件后，要想pull文件，还得每次在TortoiseGit启动时，在pageant中手动导入ppk文件，很是烦人。下面就是解决TortoiseGit每次启动时需要手动导入ppk文件的问题。  方法一 进入Git项目的目录，右键空白处，打开“TortoiseGit &amp;gt; Settings” 选中“Git &amp;gt; Re">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在TortoiseGit(pageant)中自动导入ppk文件">
-<meta name="twitter:description" content="在安装完TortoiseGit，通过PuTTYgen生成完rsa, ppk等文件后，要想pull文件，还得每次在TortoiseGit启动时，在pageant中手动导入ppk文件，很是烦人。下面就是解决TortoiseGit每次启动时需要手动导入ppk文件的问题。  方法一 进入Git项目的目录，右键空白处，打开“TortoiseGit &amp;gt; Settings” 选中“Git &amp;gt; Re">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>Hexo</title>
+    <link rel="stylesheet" href="/css/style.css?v=0.1">
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+    <body>
+        <main class="main">
+<header class="header header-post">
+    <div class="header-bar-wrap">
+        <div class="header-bar">
+            <a class="header-title" href="/">
+                <img class="logo" src="/image/logo.png">
+                <img class="logo logo-dark" src="/image/logo-dark.png">
+                <span class="logo-title">朱俊曦的博客</span>
+            </a>
+            <!-- <div class="search">
+                <span class="iconfont">&#xe69f;</span>
+                <input type="text">
+            </div> -->
+            <div class="menu">
+                
+                    <a class="menu-item" href="/archives">归档</a>
+                
+                    <a class="menu-item" href="/archives">标签</a>
+                
+                    <a class="menu-item" href="/resume">关于我</a>
+                
+            </div>
+            <div class="menu-mobile">
+                <div class="menu-moblie-icon"><span class="iconfont">&#xe608;</span></div>
+                <div class="menu-mobile-panel">
+                    
+                        <a class="menu-mobile-item" href="/archives">归档</a>
+                    
+                        <a class="menu-mobile-item" href="/archives">标签</a>
+                    
+                        <a class="menu-mobile-item" href="/resume">关于我</a>
+                    
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+    
+    
+        <div class="post-title">
+            <h1>在TortoiseGit(pageant)中自动导入ppk文件</h1>
+            <div class="post-subtitle">
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe604;</span>
+                    2017-12-04
+                </div>
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe601;</span>
+                    <ul class="title-categories-list"><li class="title-categories-list-item"><a class="title-categories-list-link" href="/categories/前端开发/">前端开发</a></li></ul>
+                </div>
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe7b4;</span>
+                    阅读<span id="busuanzi_value_page_pv"></span>次
+                </div>
+            </div>
+        </div>
+    
+    
+    
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-在TortoiseGit-pageant-中自动导入ppk文件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/04/在TortoiseGit-pageant-中自动导入ppk文件/" class="article-date">
-  <time datetime="2017-12-04T06:59:08.000Z" itemprop="datePublished">2017-12-04</time>
-</a>
+<div class="post">
+    <div class="post-con">
+        <div class="post-article">
+            <article class="article" itemscope itemprop="blogPost">   
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      在TortoiseGit(pageant)中自动导入ppk文件
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
         <blockquote>
 <p>在安装完TortoiseGit，通过PuTTYgen生成完rsa, ppk等文件后，要想pull文件，还得每次在TortoiseGit启动时，在pageant中手动导入ppk文件，很是烦人。下面就是解决TortoiseGit每次启动时需要手动导入ppk文件的问题。</p>
 </blockquote>
@@ -110,147 +91,49 @@
 </ol>
 <p><em>系转载自：<a href="http://sulaohuai.blog.51cto.com/10674946/1712115" target="_blank" rel="noopener">http://sulaohuai.blog.51cto.com/10674946/1712115</a></em></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/04/在TortoiseGit-pageant-中自动导入ppk文件/" data-id="cjt194hmb000u84tp3br6q0zj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
-
-    </footer>
-  </div>
-  
     
-<nav id="article-nav">
-  
-    <a href="/2017/12/05/自用VSCode插件合集/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          自用VSCode插件合集
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/12/01/用node-js快速搭建本地服务器/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">用node.js快速搭建本地服务器</div>
-    </a>
-  
-</nav>
-
-  
+    2017-12-04 02:59
 </article>
+        </div>
+        <div class="comment-wrap">
+    <h4 class="comment-title">发表评论</h4>
+    <div id="vcomments"></div>
+</div>
 
-</section>
-        
-          <aside id="sidebar">
-  
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: "6xRnVW2YpYshxRgJQmnbQClt-gzGzoHsz",
+        appKey: "yyMIFqybp7vgV4dqTLJpWmLp",
+        placeholder: "眼见何事，情系何方，身在何处，心思何人？",
+        notify: true, // 邮件提醒
+        verify: false, // 验证码
+        meta: ['nick','mail'] // ['nick','mail','link']
+    })
+</script>
+    </div>
+    <nav id="post-toc">
+        <h4 class="toc-title">目录</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法一"><span class="post-toc-text">方法一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法二"><span class="post-toc-text">方法二</span></a></li></ol>
+    </nav>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情随笔/">心情随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a></li></ul>
-    </div>
-  </div>
+</div>
 
-
-  
+</main>
+        <div class="gotop iconfont">&#xe69e;</div>
+        <div class="footer">
+    <p>本站访客数<span id="busuanzi_value_site_uv"></span>人次</p>
+    <p>
+        Powered By <a href="https://hexo.io/" target="_blank">Hexo</a>. 
+        Theme By <a href>coolone</a>.
+    </p>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VScode/">VScode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信开发/">微信开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li></ul>
-    </div>
-  </div>
+    <p>Copyright © 2019 John Doe</p>
+</div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/微信开发/" style="font-size: 16.67px;">微信开发</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/03/09/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/26/2018-云南三地背包游记/">2018-云南三地背包游记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/21/webpack配置基础开发环境/">webpack配置基础开发环境</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/05/axios配置/">axios配置</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/08/javascript小技巧/">javascript小技巧</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
-</body>
+    </body>
+    <script src="/js/main.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </html>

@@ -1,96 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-
-  
-  <title>使用webpack做项目版本管理 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近公司在做vue-cli构建的一个webApp项目，由于更新比较频繁，所以想到在每次用webpack打包的时候生成一个打包标记，相当于一个版本号，以供测试清楚当前的版本信息。  一：生成打包时间1.在config/index.js头部定义version。 123let nowDate = new Date();let version = `1.$&amp;#123;nowDate.getMonth()">
-<meta name="keywords" content="vue,webpack">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用webpack做项目版本管理">
-<meta property="og:url" content="http://yoursite.com/2017/11/30/使用webpack做项目版本管理/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="最近公司在做vue-cli构建的一个webApp项目，由于更新比较频繁，所以想到在每次用webpack打包的时候生成一个打包标记，相当于一个版本号，以供测试清楚当前的版本信息。  一：生成打包时间1.在config/index.js头部定义version。 123let nowDate = new Date();let version = `1.$&amp;#123;nowDate.getMonth()">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-05T01:24:06.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用webpack做项目版本管理">
-<meta name="twitter:description" content="最近公司在做vue-cli构建的一个webApp项目，由于更新比较频繁，所以想到在每次用webpack打包的时候生成一个打包标记，相当于一个版本号，以供测试清楚当前的版本信息。  一：生成打包时间1.在config/index.js头部定义version。 123let nowDate = new Date();let version = `1.$&amp;#123;nowDate.getMonth()">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>Hexo</title>
+    <link rel="stylesheet" href="/css/style.css?v=0.1">
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+    <body>
+        <main class="main">
+<header class="header header-post">
+    <div class="header-bar-wrap">
+        <div class="header-bar">
+            <a class="header-title" href="/">
+                <img class="logo" src="/image/logo.png">
+                <img class="logo logo-dark" src="/image/logo-dark.png">
+                <span class="logo-title">朱俊曦的博客</span>
+            </a>
+            <!-- <div class="search">
+                <span class="iconfont">&#xe69f;</span>
+                <input type="text">
+            </div> -->
+            <div class="menu">
+                
+                    <a class="menu-item" href="/archives">归档</a>
+                
+                    <a class="menu-item" href="/archives">标签</a>
+                
+                    <a class="menu-item" href="/resume">关于我</a>
+                
+            </div>
+            <div class="menu-mobile">
+                <div class="menu-moblie-icon"><span class="iconfont">&#xe608;</span></div>
+                <div class="menu-mobile-panel">
+                    
+                        <a class="menu-mobile-item" href="/archives">归档</a>
+                    
+                        <a class="menu-mobile-item" href="/archives">标签</a>
+                    
+                        <a class="menu-mobile-item" href="/resume">关于我</a>
+                    
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+    
+    
+        <div class="post-title">
+            <h1>使用webpack做项目版本管理</h1>
+            <div class="post-subtitle">
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe604;</span>
+                    2017-11-30
+                </div>
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe601;</span>
+                    <ul class="title-categories-list"><li class="title-categories-list-item"><a class="title-categories-list-link" href="/categories/前端开发/">前端开发</a></li></ul>
+                </div>
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe7b4;</span>
+                    阅读<span id="busuanzi_value_page_pv"></span>次
+                </div>
+            </div>
+        </div>
+    
+    
+    
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-使用webpack做项目版本管理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/30/使用webpack做项目版本管理/" class="article-date">
-  <time datetime="2017-11-30T05:41:13.000Z" itemprop="datePublished">2017-11-30</time>
-</a>
+<div class="post">
+    <div class="post-con">
+        <div class="post-article">
+            <article class="article" itemscope itemprop="blogPost">   
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      使用webpack做项目版本管理
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
         <blockquote>
 <p>最近公司在做<code>vue-cli</code>构建的一个webApp项目，由于更新比较频繁，所以想到在每次用<code>webpack</code>打包的时候生成一个打包标记，相当于一个版本号，以供测试清楚当前的版本信息。</p>
 </blockquote>
@@ -109,147 +90,49 @@
 <p>以下我定义的输出格式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">  webpack(webpackConfig, <span class="function"><span class="keyword">function</span> (<span class="params">err, stats</span>) </span>&#123;</span><br><span class="line">    spinner.stop()</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">    process.stdout.write(stats.toString(&#123;</span><br><span class="line">      colors: <span class="literal">true</span>,</span><br><span class="line">      modules: <span class="literal">false</span>,</span><br><span class="line">      children: <span class="literal">false</span>,</span><br><span class="line">      chunks: <span class="literal">false</span>,</span><br><span class="line">      chunkModules: <span class="literal">false</span></span><br><span class="line">    &#125;) + <span class="string">'\n\n'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(chalk.yellow(<span class="string">'&gt; 正式环境项目打包完毕 ヽ(^_^)ﾉ  版本：'</span> + config.version))</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>输出样式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">正式环境项目打包完毕 ヽ(^_^)ﾉ  版本：1.11.3015</span><br></pre></td></tr></table></figure></p>
 <h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/30/使用webpack做项目版本管理/" data-id="cjt194hly000f84tpfxlvbqn7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-
-    </footer>
-  </div>
-  
     
-<nav id="article-nav">
-  
-    <a href="/2017/12/01/用node-js快速搭建本地服务器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          用node.js快速搭建本地服务器
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/11/28/小诗一首/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">小诗一首</div>
-    </a>
-  
-</nav>
-
-  
+    2017-11-30 01:41
 </article>
+        </div>
+        <div class="comment-wrap">
+    <h4 class="comment-title">发表评论</h4>
+    <div id="vcomments"></div>
+</div>
 
-</section>
-        
-          <aside id="sidebar">
-  
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: "6xRnVW2YpYshxRgJQmnbQClt-gzGzoHsz",
+        appKey: "yyMIFqybp7vgV4dqTLJpWmLp",
+        placeholder: "眼见何事，情系何方，身在何处，心思何人？",
+        notify: true, // 邮件提醒
+        verify: false, // 验证码
+        meta: ['nick','mail'] // ['nick','mail','link']
+    })
+</script>
+    </div>
+    <nav id="post-toc">
+        <h4 class="toc-title">目录</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一：生成打包时间"><span class="post-toc-text">一：生成打包时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二：将version关联到package-josn"><span class="post-toc-text">二：将version关联到package.josn</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三：打包完毕，在控制台输出当前版本号"><span class="post-toc-text">三：打包完毕，在控制台输出当前版本号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其它"><span class="post-toc-text">其它</span></a></li></ol>
+    </nav>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情随笔/">心情随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a></li></ul>
-    </div>
-  </div>
+</div>
 
-
-  
+</main>
+        <div class="gotop iconfont">&#xe69e;</div>
+        <div class="footer">
+    <p>本站访客数<span id="busuanzi_value_site_uv"></span>人次</p>
+    <p>
+        Powered By <a href="https://hexo.io/" target="_blank">Hexo</a>. 
+        Theme By <a href>coolone</a>.
+    </p>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VScode/">VScode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信开发/">微信开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li></ul>
-    </div>
-  </div>
+    <p>Copyright © 2019 John Doe</p>
+</div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/微信开发/" style="font-size: 16.67px;">微信开发</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/03/09/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/26/2018-云南三地背包游记/">2018-云南三地背包游记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/21/webpack配置基础开发环境/">webpack配置基础开发环境</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/05/axios配置/">axios配置</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/08/javascript小技巧/">javascript小技巧</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
-</body>
+    </body>
+    <script src="/js/main.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </html>
