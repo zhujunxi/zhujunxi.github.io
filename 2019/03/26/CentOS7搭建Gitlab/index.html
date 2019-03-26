@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>Hexo</title>
+    <link rel="stylesheet" href="/css/style.css?v=0.1">
+</head>
+    <body>
+        <main class="main">
+<header class="header header-post">
+    <div class="header-bar-wrap">
+        <div class="header-bar">
+            <a class="header-title" href="/">
+                <img class="logo" src="/image/logo.png">
+                <img class="logo logo-dark" src="/image/logo-dark.png">
+                <span class="logo-title">朱俊曦的博客</span>
+            </a>
+            <!-- <div class="search">
+                <span class="iconfont">&#xe69f;</span>
+                <input type="text">
+            </div> -->
+            <div class="menu">
+                
+                    <a class="menu-item" href="/archives">归档</a>
+                
+                    <a class="menu-item" href="/archives">标签</a>
+                
+                    <a class="menu-item" href="/resume">关于我</a>
+                
+            </div>
+            <div class="menu-mobile">
+                <div class="menu-moblie-icon"><span class="iconfont">&#xe608;</span></div>
+                <div class="menu-mobile-panel">
+                    
+                        <a class="menu-mobile-item" href="/archives">归档</a>
+                    
+                        <a class="menu-mobile-item" href="/archives">标签</a>
+                    
+                        <a class="menu-mobile-item" href="/resume">关于我</a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+        <div class="post-title">
+            <h1>CentOS7搭建Gitlab</h1>
+            <div class="post-subtitle">
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe604;</span>
+                    2019-03-26
+                </div>
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe601;</span>
+                    
+                </div>
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe7b4;</span>
+                    阅读<span id="busuanzi_value_page_pv"></span>次
+                </div>
+            </div>
+        </div>
+    
+    
+    
+</header>
+<div class="post">
+    <div class="post-con">
+        <div class="post-article">
+            <article class="article" itemscope itemprop="blogPost">   
+    
+        <h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><h3 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>耗时较长,大约5-10分钟</p>
+</blockquote>
+<p>yum相关命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-q 静默执行 </span><br><span class="line">-t 忽略错误</span><br><span class="line">-R[分钟] 设置等待时间</span><br><span class="line">-y 自动应答yes</span><br><span class="line">--skip-broken 忽略依赖问题</span><br><span class="line">--nogpgcheck 忽略GPG验证</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。</p>
+</blockquote>
+<h3 id="安装sshd"><a href="#安装sshd" class="headerlink" title="安装sshd"></a>安装sshd</h3><p>安装sshd<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y curl policycoreutils-python openssh-server</span><br></pre></td></tr></table></figure></p>
+<p>启用并启动sshd<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">systemctl start sshd</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h3><p>打开 <code>/etc/sysctl.conf</code>文件，在文件最后添加新的一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_forward = 1</span><br></pre></td></tr></table></figure></p>
+<p>启用防火墙<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> firewalld</span><br><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure></p>
+<p>放通http<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-service=http</span><br></pre></td></tr></table></figure></p>
+<p>重启防火墙<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl reload firewalld</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>查看防火墙状态命令 <code>systemctl status firewalld</code></p>
+</blockquote>
+<h3 id="安装postfix"><a href="#安装postfix" class="headerlink" title="安装postfix"></a>安装postfix</h3><blockquote>
+<p>GitLab 需要使用 postfix 来发送邮件。当然，也可以使用 SMTP 服务器，具体步骤请参考 <a href="https://docs.gitlab.com/omnibus/settings/smtp.html" target="_blank" rel="noopener">官方教程</a>。</p>
+</blockquote>
+<p>安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y postfix</span><br></pre></td></tr></table></figure></p>
+<p>打开 <code>/etc/postfix/main.cf</code> 文件，在第119行附近找到 <code>inet_protocols = all</code>, 将<code>all</code>改为<code>ipv4</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inet_protocols = ipv4</span><br></pre></td></tr></table></figure></p>
+<p>启用postfix<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> postfix</span><br><span class="line">systemctl start postfix</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置swap交换分区"><a href="#配置swap交换分区" class="headerlink" title="配置swap交换分区"></a>配置swap交换分区</h3><blockquote>
+<p>由于 GitLab 较为消耗资源，我们需要先创建交换分区，以降低物理内存的压力。在实际生产环境中，如果服务器配置够高，则不必配置交换分区。</p>
+</blockquote>
+<p>新建2GB大小的交换分区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/root/swapfile bs=1M count=2048</span><br></pre></td></tr></table></figure></p>
+<p>格式化为交换分区并启用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkswap /root/swapfile</span><br><span class="line">swapon /root/swapfile</span><br></pre></td></tr></table></figure></p>
+<p>添加自启动<br>打开<code>/etc/fstab</code>文件，在最后添加新的一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/root/swapfile swap swap defaults 0 0</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装Gitlab"><a href="#安装Gitlab" class="headerlink" title="安装Gitlab"></a>安装Gitlab</h2><h3 id="将软件源修改为国内源"><a href="#将软件源修改为国内源" class="headerlink" title="将软件源修改为国内源"></a>将软件源修改为国内源</h3><p>由于网络环境的原因，将 repo 源修改为清华大学<br>。<br>在 <code>/etc/yum.repos.d</code> 目录下新建 <code>gitlab-ce.repo</code> 文件并保存。内容如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[gitlab-ce]</span><br><span class="line">name=Gitlab CE Repository</span><br><span class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el<span class="variable">$releasever</span>/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装Gitlab-1"><a href="#安装Gitlab-1" class="headerlink" title="安装Gitlab"></a>安装Gitlab</h3><blockquote>
+<p>刚才修改过了 yum 源，因此先重新生成缓存：（此步骤执行时间较长，一般需要 3~5 分钟左右，请耐心等待）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>安装 Gitlab</p>
+<blockquote>
+<p>安装 GitLab：（此步骤执行时间较长，一般需要 3~5 分钟左右，请耐心等待）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gitlab-ce</span><br></pre></td></tr></table></figure>
+<h2 id="初始化Gitlab"><a href="#初始化Gitlab" class="headerlink" title="初始化Gitlab"></a>初始化Gitlab</h2><h3 id="配置-GitLab-的域名（非必需）"><a href="#配置-GitLab-的域名（非必需）" class="headerlink" title="配置 GitLab 的域名（非必需）"></a>配置 GitLab 的域名（非必需）</h3><p>打开 <code>/etc/gitlab/gitlab.rb</code> 文件，在第 13 行附近找到 <code>external_url &#39;http://gitlab.example.com&#39;</code>，将单引号中的内容改为自己的域名（带上协议头，末尾无斜杠），并按 Ctrl + S 保存。<br>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">external_url <span class="string">'http://work.myteam.com'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>记得将域名通过 A 记录解析到 119.29.102.85 哦。</p>
+</blockquote>
+<h3 id="初始化-GitLab"><a href="#初始化-GitLab" class="headerlink" title="初始化 GitLab"></a>初始化 GitLab</h3><p>特别重要！<br>使用如下命令初始化 GitLab：<br>（此步骤执行时间较长，一般需要 5~10 分钟左右，请耐心等待）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>至此，我们已经成功地在 CentOS 7 上搭建了 GitLab。 现在可以在这里（<a href="http://119.29.102.85/）访问" target="_blank" rel="noopener">http://119.29.102.85/）访问</a> GitLab 了。<br>在实际生产中，建议您使用 2 核 4 GB 或更高配置的 CVM。点击这里 可以查看 GitLab 官方推荐的配置和可承载人数对应表。<br>再次提醒您，定期执行 <code>yum update -y</code>以保持各软件包的最新状态。<br>谢谢！</p>
+
+    
+    2019-03-26 02:14
+</article>
+        </div>
+        <div class="comment-wrap">
+    <h4 class="comment-title">发表评论</h4>
+    <div id="vcomments"></div>
+</div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: "6xRnVW2YpYshxRgJQmnbQClt-gzGzoHsz",
+        appKey: "yyMIFqybp7vgV4dqTLJpWmLp",
+        placeholder: "眼见何事，情系何方，身在何处，心思何人？",
+        notify: true, // 邮件提醒
+        verify: false, // 验证码
+        meta: ['nick','mail'] // ['nick','mail','link']
+    })
+</script>
+    </div>
+    <nav id="post-toc">
+        <h4 class="toc-title">目录</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#准备环境"><span class="post-toc-text">准备环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更新软件包"><span class="post-toc-text">更新软件包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装sshd"><span class="post-toc-text">安装sshd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置防火墙"><span class="post-toc-text">配置防火墙</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装postfix"><span class="post-toc-text">安装postfix</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置swap交换分区"><span class="post-toc-text">配置swap交换分区</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Gitlab"><span class="post-toc-text">安装Gitlab</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将软件源修改为国内源"><span class="post-toc-text">将软件源修改为国内源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装Gitlab-1"><span class="post-toc-text">安装Gitlab</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初始化Gitlab"><span class="post-toc-text">初始化Gitlab</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置-GitLab-的域名（非必需）"><span class="post-toc-text">配置 GitLab 的域名（非必需）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化-GitLab"><span class="post-toc-text">初始化 GitLab</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完成"><span class="post-toc-text">完成</span></a></li></ol>
+    </nav>
+    
+</div>
+
+</main>
+        <div class="gotop iconfont">&#xe69e;</div>
+        <div class="footer">
+    <p>本站访客数<span id="busuanzi_value_site_uv"></span>人次</p>
+    <p>
+        Powered By <a href="https://hexo.io/" target="_blank">Hexo</a>. 
+        Theme By <a href>coolone</a>.
+    </p>
+    
+    <p>Copyright © 2019 John Doe</p>
+</div>
+
+    </body>
+    <script src="/js/main.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</html>
