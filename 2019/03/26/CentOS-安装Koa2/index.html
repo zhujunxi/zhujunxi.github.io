@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>Hexo</title>
+    <link rel="stylesheet" href="/css/style.css?v=0.1">
+</head>
+    <body>
+        <main class="main">
+<header class="header header-post">
+    <div class="header-bar-wrap">
+        <div class="header-bar">
+            <a class="header-title" href="/">
+                <img class="logo" src="/image/logo.png">
+                <img class="logo logo-dark" src="/image/logo-dark.png">
+                <span class="logo-title">朱俊曦的博客</span>
+            </a>
+            <!-- <div class="search">
+                <span class="iconfont">&#xe69f;</span>
+                <input type="text">
+            </div> -->
+            <div class="menu">
+                
+                    <a class="menu-item" href="/archives">归档</a>
+                
+                    <a class="menu-item" href="/archives">标签</a>
+                
+                    <a class="menu-item" href="/resume">关于我</a>
+                
+            </div>
+            <div class="menu-mobile">
+                <div class="menu-moblie-icon"><span class="iconfont">&#xe608;</span></div>
+                <div class="menu-mobile-panel">
+                    
+                        <a class="menu-mobile-item" href="/archives">归档</a>
+                    
+                        <a class="menu-mobile-item" href="/archives">标签</a>
+                    
+                        <a class="menu-mobile-item" href="/resume">关于我</a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+        <div class="post-title">
+            <h1>CentOS 安装Koa2</h1>
+            <div class="post-subtitle">
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe604;</span>
+                    2019-03-26
+                </div>
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe601;</span>
+                    
+                </div>
+                <div class="post-subtitle-item">
+                    <span class="iconfont">&#xe7b4;</span>
+                    阅读<span id="busuanzi_value_page_pv"></span>次
+                </div>
+            </div>
+        </div>
+    
+    
+    
+</header>
+<div class="post">
+    <div class="post-con">
+        <div class="post-article">
+            <article class="article" itemscope itemprop="blogPost">   
+    
+        <h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>在终端输入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -</span><br><span class="line">yum -y install nodejs</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后可以使用以下命令检查是否安装成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装Koa2"><a href="#安装Koa2" class="headerlink" title="安装Koa2"></a>安装Koa2</h2><h3 id="创建一个工作目录"><a href="#创建一个工作目录" class="headerlink" title="创建一个工作目录"></a>创建一个工作目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/koa/koa-sample</span><br></pre></td></tr></table></figure>
+<p>进入此工作目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/koa/koa-sample</span><br></pre></td></tr></table></figure></p>
+<h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<h3 id="安装Koa"><a href="#安装Koa" class="headerlink" title="安装Koa"></a>安装Koa</h3><p>安装Koa2 并保存在依赖中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i koa -S</span><br></pre></td></tr></table></figure></p>
+<h2 id="完成-hello-world-案例"><a href="#完成-hello-world-案例" class="headerlink" title="完成 hello world 案例"></a>完成 hello world 案例</h2><h3 id="创建app-js文件，并进入编辑状态"><a href="#创建app-js文件，并进入编辑状态" class="headerlink" title="创建app.js文件，并进入编辑状态"></a>创建app.js文件，并进入编辑状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; app.js</span><br></pre></td></tr></table></figure>
+<h3 id="输入以下内容，-Ctrl-D-保存退出"><a href="#输入以下内容，-Ctrl-D-保存退出" class="headerlink" title="输入以下内容， Ctrl + D 保存退出"></a>输入以下内容， <code>Ctrl</code> + <code>D</code> 保存退出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(<span class="string">'koa'</span>)</span><br><span class="line">const app = new Koa()</span><br><span class="line"></span><br><span class="line">app.use( ctx =&gt; &#123;</span><br><span class="line">    ctx.body = <span class="string">"Hello World!"</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(3000)</span><br></pre></td></tr></table></figure>
+<h3 id="运行app-js"><a href="#运行app-js" class="headerlink" title="运行app.js"></a>运行app.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app</span><br></pre></td></tr></table></figure>
+<p>就可以在<code>3000</code>端口访问站点了</p>
+<h2 id="Koa应用生成器"><a href="#Koa应用生成器" class="headerlink" title="Koa应用生成器"></a>Koa应用生成器</h2><p>通过应用生成器工具koa可以快速创建一个应用的骨架</p>
+<h3 id="安装koa应用生成器"><a href="#安装koa应用生成器" class="headerlink" title="安装koa应用生成器"></a>安装koa应用生成器</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i  -g koa-generator</span><br></pre></td></tr></table></figure>
+<h3 id="创建工作目录"><a href="#创建工作目录" class="headerlink" title="创建工作目录"></a>创建工作目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/koa</span><br><span class="line">koa2 myapp</span><br></pre></td></tr></table></figure>
+<h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /data/koa/myapp</span><br><span class="line">npm install</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<p>安装启动成功就开始了万里长征的第一步了</p>
+<p><img src="https://blog-1253306634.cos.ap-guangzhou.myqcloud.com/koa2%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png?q-sign-algorithm=sha1&amp;q-ak=AKIDW2m3DJI8328Y3MjcWZ9PlOeqWEy5IEG7&amp;q-sign-time=1553565763;1553567563&amp;q-key-time=1553565763;1553567563&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=425e1ee6f7160dee2427c96eb4c32a23760ca563&amp;x-cos-security-token=4cac5a3434501fe1ccbb40f2e0bcbfc9c0b37c5410001" alt="koa2安装成功"></p>
+
+    
+    2019-03-26 09:30
+</article>
+        </div>
+        <div class="comment-wrap">
+    <h4 class="comment-title">发表评论</h4>
+    <div id="vcomments"></div>
+</div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: "6xRnVW2YpYshxRgJQmnbQClt-gzGzoHsz",
+        appKey: "yyMIFqybp7vgV4dqTLJpWmLp",
+        placeholder: "眼见何事，情系何方，身在何处，心思何人？",
+        notify: true, // 邮件提醒
+        verify: false, // 验证码
+        meta: ['nick','mail'] // ['nick','mail','link']
+    })
+</script>
+    </div>
+    <nav id="post-toc">
+        <h4 class="toc-title">目录</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Node-js"><span class="post-toc-text">安装Node.js</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Koa2"><span class="post-toc-text">安装Koa2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建一个工作目录"><span class="post-toc-text">创建一个工作目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化项目"><span class="post-toc-text">初始化项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装Koa"><span class="post-toc-text">安装Koa</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完成-hello-world-案例"><span class="post-toc-text">完成 hello world 案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建app-js文件，并进入编辑状态"><span class="post-toc-text">创建app.js文件，并进入编辑状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入以下内容，-Ctrl-D-保存退出"><span class="post-toc-text">输入以下内容， Ctrl + D 保存退出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行app-js"><span class="post-toc-text">运行app.js</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Koa应用生成器"><span class="post-toc-text">Koa应用生成器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装koa应用生成器"><span class="post-toc-text">安装koa应用生成器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建工作目录"><span class="post-toc-text">创建工作目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动项目"><span class="post-toc-text">启动项目</span></a></li></ol></li></ol>
+    </nav>
+    
+</div>
+
+</main>
+        <div class="gotop iconfont">&#xe69e;</div>
+        <div class="footer">
+    <p>本站访客数<span id="busuanzi_value_site_uv"></span>人次</p>
+    <p>
+        Powered By <a href="https://hexo.io/" target="_blank">Hexo</a>. 
+        Theme By <a href>coolone</a>.
+    </p>
+    
+    <p>Copyright © 2019 John Doe</p>
+</div>
+
+    </body>
+    <script src="/js/main.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</html>
