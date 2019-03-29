@@ -61,10 +61,34 @@ const wait1 = () => {
 
 const wait2 = () => {
     return new Promise(resolve => {
-        resolve();
+        resolve(
+            setTimeout(() => {
+                console.log("2s later");
+            }, 2000)
+        );
     });
 };
+async function test() {
+    const a = await wait1();
+    const b = await wait2();
+    console.log("end");
+}
+console.log("start");
+test();
 ```
+
+上面的代码执行起来就是这样的：
+
+```bash
+start
+end
+1s later
+2s later
+```
+
+它很好的解决了异步的一些麻烦，且写出来的代码的可读性也非常好
+
+## 请求数据获取
 
 ## 参考文档
 
