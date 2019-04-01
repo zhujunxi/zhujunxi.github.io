@@ -33,3 +33,9 @@ git log --pretty='%aN' | sort -u | wc -l
 ```bash
 git log --oneline | wc -l
 ```
+
+git log 的进阶使用
+
+```bash
+git log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+```
